@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Gastos e Despesas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <button class="tab active" data-tab="cadastro">Cadastro</button>
+      <button class="tab" data-tab="gerais">Gerais</button>
+    </nav>
+
+    <div id="cadastro" class="tab-content active">
+      <form id="formulario">
+        <div class="form-group">
+          <label for="descricao">Descrição:</label>
+          <input type="text" id="descricao" required>
+        </div>
+        <div class="form-group">
+          <label for="destino">Destino:</label>
+          <input type="text" id="destino" required>
+        </div>
+        <div class="form-group">
+          <label for="remetente">Remetente:</label>
+          <input type="text" id="remetente" required>
+        </div>
+        <div class="form-group">
+          <label for="valor">Valor:</label>
+          <input type="number" id="valor" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="data">Data:</label>
+          <input type="date" id="data" required>
+        </div>
+        <div class="form-group">
+          <label>Tipo:</label>
+          <div class="radio-group">
+            <label><input type="radio" name="tipo" value="Despesa Fixa" required> Despesa Fixa</label>
+            <label><input type="radio" name="tipo" value="Gasto" required> Gasto</label>
+          </div>
+        </div>
+        <button type="submit">Confirmar</button>
+      </form>
+    </div>
+
+    <div id="gerais" class="tab-content">
+      <div id="filtro-data">
+        <label for="mes">Filtrar por Mês:</label>
+        <input type="month" id="mes">
+      </div>
+      <div id="lista-registros"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registrado com sucesso:', registration.scope);
+          })
+          .catch(error => {
+            console.log('Falha ao registrar ServiceWorker:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

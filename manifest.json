@@ -1,0 +1,22 @@
+{
+  "short_name": "GastosApp",
+  "name": "Gerenciador de Gastos e Despesas",
+  "description": "Aplicativo para gerenciamento de gastos e despesas fixas mensais",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#007bff"
+}
